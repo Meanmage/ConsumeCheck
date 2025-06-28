@@ -1,0 +1,8 @@
+## Interface: 11200
+## Title: ConsumeCheck 1.0
+## Author: ConsumeCheck
+## Version: 1.0
+## Notes: Scan and report raid member buffs to a text file
+## RequiredDeps:
+
+ConsumeCheck.lua
