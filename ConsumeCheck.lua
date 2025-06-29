@@ -142,7 +142,7 @@ local function IsBuffBlacklisted(buffName)
     end
 
     -- Check if buff name contains "illusion" (case-insensitive)
-    if string.find(lowerName, "illusion") then
+    if string.find(lowerName, "illusion:") then
         return true
     end
 
