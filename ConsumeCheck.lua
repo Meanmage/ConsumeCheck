@@ -70,11 +70,13 @@ local BuffBlacklist = {
     ["enrage"] = true,
     ["fire resistance aura"] = true,
     ["fire shield"] = true,
+    ["fire ward"] = true,
     ["flametongue totem passive"] = true,
     ["flip out"] = true,
     ["flurry"] = true,
     ["frenzied regeneration"] = true,
     ["frost armor"] = true,
+    ["frost ward"] = true,
     ["gift of the wild"] = true,
     ["grace of air"] = true,
     ["greater blessing of kings"] = true,
@@ -87,7 +89,6 @@ local BuffBlacklist = {
     ["holy judgement"] = true,
     ["holy strength"] = true,
     ["ice barrier"] = true,
-    ["illusion: two-headed ogre"] = true,
     ["inner fire"] = true,
     ["inspiration"] = true,
     ["leader of the pack"] = true,
@@ -134,7 +135,18 @@ local function IsBuffBlacklisted(buffName)
     end
 
     local lowerName = string.lower(buffName)
-    return BuffBlacklist[lowerName] or false
+
+    -- Check if buff is in the explicit blacklist
+    if BuffBlacklist[lowerName] then
+        return true
+    end
+
+    -- Check if buff name contains "illusion" (case-insensitive)
+    if string.find(lowerName, "illusion") then
+        return true
+    end
+
+    return false
 end
 
 -- Class names for display
